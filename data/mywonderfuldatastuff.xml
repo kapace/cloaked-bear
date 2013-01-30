@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<district sgc="49000" name="Kitimat-Stikine">
+    <area sgc="49022" name="Hazelton" type="VL">
+        <population year="2006" value="293" />
+        <population year="2007" value="296" />
+        <population year="2008" value="298" />
+        <population year="2009" value="305" />
+        <population year="2010" value="302" />
+        <population year="2011" value="314" />
+        <population year="2012" value="333" />
+    </area>
+    <!-- 9328	9095	9182	9237	9175	9104	9009 -->
+    <area sgc="49005" name="Kitimat" type="DM">
+        <population year="2006" value="9328" />
+        <population year="2007" value="9095" />
+        <population year="2008" value="9182" />
+        <population year="2009" value="9237" />
+        <population year="2010" value="9175" />
+        <population year="2011" value="9104" />
+        <population year="2012" value="9009" />
+    </area>
+    <!-- 627	610	611	605	603	618	611 -->
+    <area sgc="49024" name="New Hazelton" type="DM">
+        <population year="2006" value="627" />
+        <population year="2007" value="610" />
+        <population year="2008" value="611" />
+        <population year="2009" value="605" />
+        <population year="2010" value="603" />
+        <population year="2011" value="618" />
+        <population year="2012" value="611" />
+    </area>
+    <area sgc="49032" name="Stewart" type="DM">
+        <population year="2006" value="496" />
+        <population year="2007" value="481" />
+        <population year="2008" value="510" />
+        <population year="2009" value="491" />
+        <population year="2010" value="495" />
+        <population year="2011" value="500" />
+        <population year="2012" value="488" />
+    </area>
+    <area sgc="49011" name="Terrace" type="C">
+        <population year="2006" value="11475" />
+        <population year="2007" value="11357" />
+        <population year="2008" value="11553" />
+        <population year="2009" value="11688" />
+        <population year="2010" value="11926" />
+        <population year="2011" value="12052" />
+        <population year="2012" value="12182" />
+    </area>
+    <area sgc="49999" name="Unincorporated Areas" type="RDR1">
+        <population year="2006" value="16584" />
+        <population year="2007" value="16480" />
+        <population year="2008" value="16977" />
+        <population year="2009" value="17146" />
+        <population year="2010" value="17127" />
+        <population year="2011" value="17141" />
+        <population year="2012" value="17099" />
+    </area>
+</district>
