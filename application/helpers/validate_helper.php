@@ -2,4 +2,8 @@
 function validate_name($name) {
     return preg_match('/^[A-Za-z]/', $name) === 1;
 }
+
+function validate_date($date) {
+    return preg_match('/^[0-9]{4}.[0-9]{2}.[0-9]{2}/', $date) === 1;
+}
 ?>
