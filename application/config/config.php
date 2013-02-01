@@ -23,7 +23,7 @@ $config['DATA_FOLDER'] = "data/";    // relative to document root
   |	http://example.com/
   |
  */
-$config['base_url'] = "";
+$config['base_url'] = "http://jkl.bcitxml.com/";
 
 /*
   |--------------------------------------------------------------------------

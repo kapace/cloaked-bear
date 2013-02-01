@@ -8,7 +8,7 @@
 class Add_vendors extends Application {
     
     function index() {
-        $this->data['pagebody'] = 'add_vendor';
+        $this->data['pagebody'] = 'add_vendors';
         $record = array('id'=>'', 'name'=>'', 'status'=>'');
         $this->data = array_merge($this->data, $record);
         $this->render();
@@ -19,7 +19,7 @@ class Add_vendors extends Application {
         //if something is not valid
         //  $this->index();
 
-        $this->load->helper('validate_helper');
+        $this->load->helper('validate');
 
         $new_id = $_POST['id'];
         if ($this->vendors->get($new_id) != null)
@@ -31,11 +31,11 @@ class Add_vendors extends Application {
         if (!validate_name($_POST['status']))
             $this->data['errors'][] = 'Status ccannot be blank!';
 
-        if (count($this->data['errors']) > 0)
+        if (count($this->data['errors']) > 0) {
             $this->index();
-        else {
+        } else {
             $this->vendors->add($_POST);
-            redirect('/');
+            redirect('/ap/welcome');
         }
     }
 }
