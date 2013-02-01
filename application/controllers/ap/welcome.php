@@ -19,6 +19,7 @@ class Welcome extends Application {
     function index() {
         $this->data['pagetitle'] = 'COMP4711 - Accounts payable';
         $this->data['pagebody'] = 'home';
+        $this->data['vendors'] = $this->vendors->getAll_array();
         $this->render();
     }
 
