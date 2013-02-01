@@ -19,7 +19,7 @@ class Customers extends _Mymodel{
     // constructor
     function __construct() {
         parent::__construct();
-        $this->setTable('customer','id');
+        $this->setTable('customers','id');
     }
 }
 
