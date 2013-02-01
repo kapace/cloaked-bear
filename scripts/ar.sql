@@ -1,14 +1,13 @@
 DROP TABLE IF EXISTS customers;
 CREATE TABLE customers
 (
-'id' VARCHAR(3) NOT NULL,
-'OrderId' INT NOT NULL
-'CustomerId' INT NOT NULL,
-'CustomerName' VARCHAR(64) NOT NULL,
-'AmountOwed' DECIMAL(7,2) NOT NULL,
-'DueDate' DATE NOT NULL,
-PRIMARY KEY ('id')
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+`id` VARCHAR(3) NOT NULL PRIMARY KEY,
+`OrderId` INT NOT NULL,
+`CustomerId` INT NOT NULL,
+`CustomerName` VARCHAR(64) NOT NULL,
+`AmountOwed` DECIMAL(7,2) NOT NULL,
+`DueDate` DATE NOT NULL
+);
 
 INSERT INTO customers VALUES ('abc', '0001', '0001', 'asdf', 100, '2012-01-01');
 INSERT INTO customers VALUES ('def', '0002', '0002', 'fasdf', 100, '2012-02-20');
