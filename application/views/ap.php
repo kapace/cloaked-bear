@@ -6,7 +6,7 @@
 <div>
     <h1>COMP4711 Assignment 1</h1>
     <h2>Accounts Payable</h2>
-    <a href="/ap/add_vendors">Add a vendor</a>
+    <a href="/ap/manage_vendors">Add Vendors</a>
 </div>
 
 
@@ -22,8 +22,8 @@
         <td>{id}</td>
         <td>{name}</td>
         <td>{status}</td>
-        <td><a href="/ap/update/{id}">Update</a></td>
-        <td><a href="/ap/delete/{id}">Delete</a></td>
+        <td><a href="/ap/manage_vendors/update/{id}">Update</a></td>
+        <td><a href="/ap/manage_vendors/delete/{id}">Delete</a></td>
     </tr>
     {/vendors}
 </table>

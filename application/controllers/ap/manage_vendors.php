@@ -5,10 +5,10 @@
  *
  * @author ronb
  */
-class Add_vendors extends Application {
+class Manage_vendors extends Application {
     
     function index() {
-        $this->data['pagebody'] = 'add_vendors';
+        $this->data['pagebody'] = 'manage_vendors';
         $record = array('id'=>'', 'name'=>'', 'status'=>'');
         $this->data = array_merge($this->data, $record);
         $this->render();
@@ -37,6 +37,24 @@ class Add_vendors extends Application {
             $this->vendors->add($_POST);
             redirect('/ap/welcome');
         }
+    }
+    
+    function update($vendorid) {
+        $oldrecord = $this->vendors->get($vendorid);
+        
+        //toggle between D and A for the status
+        $oldrecord->status = ($oldrecord->status === 'A') ? 'D': 'A';
+        
+        $this->vendors->update($oldrecord);
+        redirect('/ap/welcome');
+    }
+    
+    function delete($vendorid) {
+        $oldrecord = $this->vendors->get($vendorid);
+        
+        $oldrecord->status = 'D';
+        $this->vendors->update($oldrecord);
+        redirect('/ap/welcome');
     }
 }
 
