@@ -8,6 +8,8 @@
     <a href="/gl/add_gl">Add Accounts</a>
 </div>
 
+
+
 <table cols="" border="0">
     <tr>
         <th>ID</th>
@@ -17,11 +19,11 @@
     </tr>
     {accounts}
     <tr>
-        <td>{id}</td>
-        <td>{name}</td>
-        <td>{date}</td>
-        <td>{status}</td>
-        <td><a href="/gl/add_gl/update/{id}">Update</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="/gl/add_gl/update_form/{id}">Update</a></td>
         <td><a href="/gl/add_gl/delete/{id}">Delete</a></td>
     </tr>
     {/accounts}

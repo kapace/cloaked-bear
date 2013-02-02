@@ -14,15 +14,11 @@ class Add_gl extends Application {
     //put your code here
     
     function index() {       
-        $this->data['pagebody'] = "add_gl_form";
-        $record=array('account_id'=>'', 'account_name'=>'', 'account_type'=>'', 'account_status'=>'');
+        $this->data['pagebody'] = "gl";
+        $record=array('id'=>'', 'account_name'=>'', 'account_type'=>'', 'account_status'=>'');
         $this->data = array_merge($this->data, $record);
+         $this->data['action'] = 'create';
         $this->render();
-    }
-    
-    function post() {
-        
-        
     }
     
     function update_form ($accountid) {
@@ -36,7 +32,7 @@ class Add_gl extends Application {
     function create () {
         $this->load->helper('validate');
         
-        $new_id = $_POST['account_id'];
+        $new_id = $_POST['id'];
         
         $new_date = $_POST['account_date'];
         $new_name = $_POST['account_name'];
