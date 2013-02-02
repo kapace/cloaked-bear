@@ -30,3 +30,5 @@ if (!defined('APPPATH'))
     </tr>
     {/customers}
 </table>
+
+<a href="/ar/manage_recievable">Add Receivable</a>
