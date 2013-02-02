@@ -17,13 +17,13 @@ class Application extends CI_Controller {
     const TICK = '<img src="/assets/images/tick.png"/>';
 
     protected $choices = array(// our menu navbar
-        array("href" => "/xml/welcome", "title" => "Assignment root", "label" => "Home", "tick" => ""),
-        array("href" => "/xml/gl/welcome", "title" => "General Ledger", "label" => "General Ledger", "tick" => ""),
-        array("href" => "/xml/ap/welcome", "title" => "Accounts Payable", "label" => "Accounts Payable", "tick" => ""),
-        array("href" => "/xml/ar/welcome", "title" => "Accounts Receivable", "label" => "Accounts Receivable", "tick" => ""),
-        array("href" => "/xml/ic/welcome", "title" => "Inventory Control", "label" => "Inventory Control", "tick" => ""),
-        array("href" => "/xml/oe/welcome", "title" => "Order Entry", "label" => "Order Entry", "tick" => ""),
-        array("href" => "/xml/po/welcome", "title" => "Purchasing", "label" => "Purchasing", "tick" => "")
+        array("href" => "/welcome", "title" => "Assignment root", "label" => "Home", "tick" => ""),
+        array("href" => "/gl/welcome", "title" => "General Ledger", "label" => "General Ledger", "tick" => ""),
+        array("href" => "/ap/welcome", "title" => "Accounts Payable", "label" => "Accounts Payable", "tick" => ""),
+        array("href" => "/ar/welcome", "title" => "Accounts Receivable", "label" => "Accounts Receivable", "tick" => ""),
+        array("href" => "/ic/welcome", "title" => "Inventory Control", "label" => "Inventory Control", "tick" => ""),
+        array("href" => "/oe/welcome", "title" => "Order Entry", "label" => "Order Entry", "tick" => ""),
+        array("href" => "/po/welcome", "title" => "Purchasing", "label" => "Purchasing", "tick" => "")
     );
 
     /**
