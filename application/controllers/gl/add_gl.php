@@ -72,13 +72,18 @@ class Add_gl extends Application {
         if ($this->accounts->get($up_id) == null)
             $this->data['errors'][] = 'Cant update, does not exist.';
         
-        $oldrecord = $this->accounts->get_array($up_id);
+        if (count($this->data['errors']) > 0) {
+            $this->index();
+        } else {
+            $oldrecord = $this->accounts->get_array($up_id);
 
-        // Get new data from POST
-        $oldrecord = array_merge ($oldrecord, $_POST);
+            // Get new data from POST
+            $oldrecord = array_merge ($oldrecord, $_POST);
+
+            $this->accounts->update($oldrecord);
+            redirect('/gl/welcome');
+        }
         
-        $this->accounts->update($oldrecord);
-        redirect('/gl/welcome');
     }
     
     function delete($accountid) {
