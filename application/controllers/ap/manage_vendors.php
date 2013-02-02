@@ -8,7 +8,7 @@
 class Manage_vendors extends Application {
     
     function index() {
-        $this->data['pagebody'] = 'manage_vendors';
+        $this->data['pagebody'] = 'ap/manage_vendors';
         $record = array('id'=>'', 'name'=>'', 'status'=>'');
         $this->data = array_merge($this->data, $record);
         $this->data['action'] = 'create';
@@ -16,7 +16,7 @@ class Manage_vendors extends Application {
     }
 
     function update_form ($vendorid) {
-        $this->data['pagebody'] = 'manage_vendors';
+        $this->data['pagebody'] = 'ap/manage_vendors';
         $record = $this->vendors->get_array($vendorid);
         $this->data = array_merge($this->data, $record);
         $this->data['action'] = 'update';
