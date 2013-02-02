@@ -5,7 +5,7 @@
 <div>
     <h1>COMP4711 Assignment 1</h1>
     <h2>General Ledger</h2>
-    <a href="/gl/add_gl/create">Add Accounts</a>
+    <a href="/gl/add_gl">Add Accounts</a>
 </div>
 
 
