@@ -6,4 +6,8 @@ function validate_name($name) {
 function validate_date($date) {
     return preg_match('/^[0-9]{4}.[0-9]{2}.[0-9]{2}/', $date) === 1;
 }
+
+function validate_status($status) {
+    return preg_match('{A|D}', $status );
+}
 ?>
