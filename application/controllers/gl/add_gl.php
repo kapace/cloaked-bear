@@ -67,10 +67,32 @@ class Add_gl extends Application {
     }
     
     function update() {
+        $this->load->helper('validate');
+        
         $up_id = $_POST['id'];
-
+        $up_date = $_POST['account_date'];
+        $up_name = $_POST['account_name'];
+        $up_status = $_POST['account_status'];
+        
         if ($this->accounts->get($up_id) == null)
             $this->data['errors'][] = 'Cant update, does not exist.';
+        
+        if ($up_id == NULL) {
+            $this->data['errors'][] = 'id cannot be empty';
+        }
+        if ($up_date == NULL) {
+            $this->data['errors'][] = 'date cannot be null';
+        }
+        if ($up_name == NULL) {
+            $this->data['errors'][] = 'account name cannot be null';
+        }
+        if ($up_status == NULL  ) {
+            $this->data['errors'][] = 'status cannot be null';
+        }
+        
+        if (!validate_status($up_status)) {
+            $this->data['errors'][] = 'invalid status';
+        }
         
         if (count($this->data['errors']) > 0) {
             $this->index();
