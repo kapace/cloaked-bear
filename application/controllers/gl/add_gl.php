@@ -13,14 +13,11 @@
 class Add_gl extends Application {
     //put your code here
     
-    function index() {
+    function index() {       
+        $this->data['pagebody'] = "add_gl_form";
         $record=array('account_id'=>'', 'account_name'=>'', 'account_type'=>'', 'account_status'=>'');
         $this->data = array_merge($this->data, $record);
-        
-        $this->data['pagebody'] = "add_gl_form";
-        
         $this->render();
-        
     }
     
     function post() {
@@ -57,8 +54,25 @@ class Add_gl extends Application {
             $this->index();
         } else {
             $this->accounts->add($_POST);
-            redirect('/');
+            redirect('/gl/welcome');
         }
+    }
+    
+    //function update($accountid) {
+        //$oldrecord = $this->accounts->get($accountid);
+
+        //$oldrecord->status = ($oldrecord->status === 'A') ? 'D': 'A';
+        
+        //$this->accounts->update($oldrecord);
+        //redirect('/gl/welcome');
+    //}
+    
+    function delete($accountid) {
+        $oldrecord = $this->accounts->get($accountid);
+        
+        $oldrecord->status = 'D';
+        $this->accounts->update($oldrecord);
+        redirect('/gl/welcome');
     }
 }
 

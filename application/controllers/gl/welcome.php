@@ -18,7 +18,8 @@ class Welcome extends Application {
      */
     function index() {
         $this->data['pagetitle'] = 'COMP4711 - General Ledger';
-        $this->data['pagebody'] = 'home';
+        $this->data['pagebody'] = 'gl';
+        $this->data['accounts'] = $this->accounts->getAll_array();
         $this->render();
     }
 
