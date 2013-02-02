@@ -3,3 +3,17 @@
 */logs/!index.html
 */cache/*
 */cache/!index.html
+
+application/controllers/po/welcome.php
+
+application/controllers/po/welcome.php
+
+.htaccess
+
+.DS_Store
+
+application/config/database.php
+
+application/controllers/po/welcome.php
+
+application/core/MY_Controller.php

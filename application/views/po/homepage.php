@@ -13,6 +13,11 @@ if (!defined('APPPATH'))
  * --------------------------------------------
  */
 ?>
+
+<ul>
+    <li><a href="/po/crud_purchase">Add</a></li>
+</ul>
+
 <table cols="" border="0">
     <tr>
         <th>Product ID</th>
@@ -23,10 +28,12 @@ if (!defined('APPPATH'))
         <th>Reorder Point</th>
         <th>Reorder Qty</th>
         <th>Supplier No.</th>
+        <th>:</th>
+        <th>)</th>
     </tr>
     {purchases}
     <tr>
-        <td>{productid}</td>
+        <td>{id}</td>
         <td>{productname}</td>
         <td>{productstatus}</td>
         <td>{productdate}</td>
@@ -34,6 +41,8 @@ if (!defined('APPPATH'))
         <td>{reorderpoint}</td>
         <td>{reorderqty}</td>
         <td>{supplierno}</td>
+        <td><a href="/po/crud_purchase/delete/{id}">X</a></td>
+        <td><a href="/po/crud_purchase/update/{id}">U</a></td>
     </tr>
     {/purchases}
 </table>

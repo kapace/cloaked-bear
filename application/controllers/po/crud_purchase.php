@@ -4,18 +4,18 @@ if (!defined('APPPATH'))
     exit('No direct script access allowed');
 
 /**
- * controllers/po/add_purchase
+ * controllers/po/crud_purchase
  *
- * Logic for adding purchases (PO)
+ * Logic for adding, deleting and updating purchase entries.
  *
  * @author		Aaron Lee, Steve Lo
  * ------------------------------------------------------------------------
  */
-class Add_purchase extends Application {
+class Crud_purchase extends Application {
     function index() {
-        $this->data['pagebody'] = "add_form";
+        $this->data['pagebody'] = "po/add_purchases_form";
         $record = array(
-            'productid'=>'', 
+            'id'=>'', 
             'productname'=>'',
             'productstatus'=>'',
             'productdate'=>'',
@@ -65,7 +65,25 @@ class Add_purchase extends Application {
             redirect('/');
         }
     }
+    
+    function update($vendorid) {
+        $oldrecord = $this->purchases->get($id);
+        
+        //toggle between D and A for the status
+        $oldrecord->productstatus = ($oldrecord->productstatus === 'A') ? 'D': 'A';
+        
+        $this->purchases->update($oldrecord);
+        redirect('/po/welcome');
+    }
+    
+    function delete($vendorid) {
+        $oldrecord = $this->purchases->get($vendorid);
+        
+        $oldrecord->productstatus = 'D';
+        $this->purchases->update($oldrecord);
+        redirect('/po/welcome');
+    }
 }
 
-/* End of file welcome.php */
-/* Location: application/controllers/po/add_purchase.php */
+/* End of file crud_purchase.php */
+/* Location: application/controllers/po/crud_purchase.php */
