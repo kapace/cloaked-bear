@@ -22,7 +22,7 @@ _<?php
                 {content}
             </div>
             <div id="footer">
-                <p>Comp4711 solution provided by <a href="mailto:{email}">{instructor}</a>.</p>
+                <p><a href="mailto:{email}">{instructor}</a> (c) 2013.</p>
             </div>
 
         </div>

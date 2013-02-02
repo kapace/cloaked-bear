@@ -11,10 +11,19 @@ class Manage_vendors extends Application {
         $this->data['pagebody'] = 'manage_vendors';
         $record = array('id'=>'', 'name'=>'', 'status'=>'');
         $this->data = array_merge($this->data, $record);
+        $this->data['action'] = 'create';
+        $this->render();
+    }
+
+    function update_form ($vendorid) {
+        $this->data['pagebody'] = 'manage_vendors';
+        $record = $this->vendors->get_array($vendorid);
+        $this->data = array_merge($this->data, $record);
+        $this->data['action'] = 'update';
         $this->render();
     }
     
-     function post() {
+    function create () {
         //start validating here
         //if something is not valid
         //  $this->index();
@@ -39,11 +48,16 @@ class Manage_vendors extends Application {
         }
     }
     
-    function update($vendorid) {
-        $oldrecord = $this->vendors->get($vendorid);
+    function update() {
+        $up_id = $_POST['id'];
+
+        if ($this->vendors->get($up_id) == null)
+            $this->data['errors'][] = 'Cant update, does not exist.';
         
-        //toggle between D and A for the status
-        $oldrecord->status = ($oldrecord->status === 'A') ? 'D': 'A';
+        $oldrecord = $this->vendors->get_array($up_id);
+
+        // Get new data from POST
+        $oldrecord = array_merge ($oldrecord, $_POST);
         
         $this->vendors->update($oldrecord);
         redirect('/ap/welcome');

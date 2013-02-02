@@ -22,7 +22,7 @@
         <td>{id}</td>
         <td>{name}</td>
         <td>{status}</td>
-        <td><a href="/ap/manage_vendors/update/{id}">Update</a></td>
+        <td><a href="/ap/manage_vendors/update_form/{id}">Update</a></td>
         <td><a href="/ap/manage_vendors/delete/{id}">Delete</a></td>
     </tr>
     {/vendors}

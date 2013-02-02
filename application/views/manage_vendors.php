@@ -1,6 +1,6 @@
 <?php
 $this->load->helper('form');
-echo form_open('/ap/manage_vendors/post');
+echo form_open('/ap/manage_vendors/{action}');
 
 echo form_label('ID', 'id');
 echo form_input('id', '{id}');
