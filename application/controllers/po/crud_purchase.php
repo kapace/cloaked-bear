@@ -29,6 +29,7 @@ class Crud_purchase extends Application {
     }
     
     function post() {
+        // basic validation (dupes/blanks)
         $this->load->helper('validate');
         
         $record = array(
@@ -49,7 +50,7 @@ class Crud_purchase extends Application {
                 $this->data['errors'][] = $key." is blank.";
         }
         
-        // validate duples
+        // validate dupes
         foreach($record as $key=>$value)
         {
             $temp = $_POST[$key];
@@ -66,6 +67,7 @@ class Crud_purchase extends Application {
         }
     }
     
+    // U, D functions courtesy of AP module
     function update($vendorid) {
         $oldrecord = $this->purchases->get($id);
         
