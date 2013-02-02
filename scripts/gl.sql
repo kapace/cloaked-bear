@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS accounts;
 CREATE TABLE accounts 
 (
-`account_id` DECIMAL(3) NOT NULL PRIMARY KEY,
+`id` DECIMAL(3) NOT NULL PRIMARY KEY,
 `account_date` DATE,
 `account_name` varchar(80),
 `account_status` varchar(80)
