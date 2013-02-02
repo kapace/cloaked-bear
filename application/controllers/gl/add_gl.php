@@ -14,7 +14,7 @@ class Add_gl extends Application {
     //put your code here
     
     function index() {       
-        $this->data['pagebody'] = "gl/add_gl";
+        $this->data['pagebody'] = "gl/manage_accounts";
         $record=array('id'=>'', 'account_name'=>'', 'account_type'=>'', 'account_status'=>'');
         $this->data = array_merge($this->data, $record);
          $this->data['action'] = 'create';
