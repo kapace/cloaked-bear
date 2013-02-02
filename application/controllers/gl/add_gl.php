@@ -84,7 +84,7 @@ class Add_gl extends Application {
     function delete($accountid) {
         $oldrecord = $this->accounts->get($accountid);
         
-        $oldrecord->status = 'D';
+        $oldrecord->account_status = 'D';
         $this->accounts->update($oldrecord);
         redirect('/gl/welcome');
     }
