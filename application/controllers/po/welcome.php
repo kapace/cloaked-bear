@@ -18,11 +18,12 @@ class Welcome extends Application {
      */
     function index() {
         $this->data['pagetitle'] = 'COMP4711 - Purchasing';
-        $this->data['pagebody'] = 'home';
+        $this->data['pagebody'] = 'po/homepage';
+        $this->data['purchases'] = $this->purchases->getAll_array();
         $this->render();
     }
 
 }
 
 /* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+/* Location: ./application/controllers/po/welcome.php */
