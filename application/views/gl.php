@@ -19,10 +19,10 @@
     </tr>
     {accounts}
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{id}</td>
+        <td>{account_name}</td>
+        <td>{account_date}</td>
+        <td>{account_status}</td>
         <td><a href="/gl/add_gl/update_form/{id}">Update</a></td>
         <td><a href="/gl/add_gl/delete/{id}">Delete</a></td>
     </tr>
