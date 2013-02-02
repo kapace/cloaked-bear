@@ -22,6 +22,18 @@ class Add_gl extends Application {
     
     function post() {
         
+        
+    }
+    
+    function update_form ($accountid) {
+        $this->data['pagebody'] = 'add_gl';
+        $record = $this->accounts->get_array($accountid);
+        $this->data = array_merge($this->data, $record);
+        $this->data['action'] = 'update';
+        $this->render();
+    }
+    
+    function create () {
         $this->load->helper('validate');
         
         $new_id = $_POST['account_id'];
@@ -58,14 +70,20 @@ class Add_gl extends Application {
         }
     }
     
-    //function update($accountid) {
-        //$oldrecord = $this->accounts->get($accountid);
+    function update() {
+        $up_id = $_POST['id'];
 
-        //$oldrecord->status = ($oldrecord->status === 'A') ? 'D': 'A';
+        if ($this->accounts->get($up_id) == null)
+            $this->data['errors'][] = 'Cant update, does not exist.';
         
-        //$this->accounts->update($oldrecord);
-        //redirect('/gl/welcome');
-    //}
+        $oldrecord = $this->accounts->get_array($up_id);
+
+        // Get new data from POST
+        $oldrecord = array_merge ($oldrecord, $_POST);
+        
+        $this->accounts->update($oldrecord);
+        redirect('/gl/welcome');
+    }
     
     function delete($accountid) {
         $oldrecord = $this->accounts->get($accountid);
