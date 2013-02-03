@@ -19,6 +19,14 @@ _<?php
                 {menubar}
             </div>
             <div id="content">
+                <?php
+                /* Display errors before content*/
+                if (count($errors) > 0 ) {
+                    foreach($errors as $booboo) {
+                        echo '<p<b>Oh nooOooO!</b> ' . $booboo . '</p>';
+                    }
+                }
+                ?>
                 {content}
             </div>
             <div id="footer">
