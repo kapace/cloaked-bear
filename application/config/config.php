@@ -23,13 +23,8 @@ $config['DATA_FOLDER'] = "data/";    // relative to document root
   |	http://example.com/
   |
  */
-
-/* todo:
 $config['base_url'] = "http://jkl.bcitxml.com/";
- *
- */
 
-$config['base_url'] = "http://comp4711.assign/";
 
 /*
   |--------------------------------------------------------------------------
