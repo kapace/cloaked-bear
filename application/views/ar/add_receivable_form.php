@@ -5,28 +5,22 @@
      * @author - aliao17 Albert Liao A00536695
      */
     $this->load->helper('form');
+    $this->load->helper('html');
     echo form_open('/ar/manage_receivable/add_customer');
-?>
+    echo br();
 
-<?php
     echo form_label('ID: ','ID');
     echo form_input('id','{id}');
-?>
-<br />
+    echo br();
 
-<?php
     echo form_label('Name: ','Name');
     echo form_input('name','{name}');
-?>
-<br />
+    echo br();
 
-<?php
     echo form_label('Status: ','Status');
     echo form_input('status','{status}');
-?>
-<br />
+    echo br();
 
-<?php
     // Add button to submit the form.
     echo form_submit('', 'Add');
     echo form_close();
