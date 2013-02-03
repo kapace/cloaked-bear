@@ -1,23 +1,16 @@
 <?php
-    //Code for putting together the form for fields ID, first name, last name
-    // email
+    /*
+     * This view is used as the form to update a row in the customer table.
+     *
+     * @author - aliao17 Albert Liao A00536695
+     */
     $this->load->helper('form');
-    echo form_open('/ar/manage_receivable/update_customer');
-?>
-
-<?php
-if(count($errors) > 0)
-{
-    foreach($errors as $error)
-    {
-        echo '<p>'.$error.'</p>';
-    }
-}
+    echo form_open('/ar/manage_receivable/update_customer/{id}');
 ?>
 
 <?php
     echo form_label('ID: ','ID');
-    echo form_input('id','{id}');
+    echo form_label('{id}','{id}');
 ?>
 <br />
 
@@ -34,7 +27,7 @@ if(count($errors) > 0)
 <br />
 
 <?php
-    //submit button to submit the form
+    // Update button to submit the form.
     echo form_submit('', 'Update');
     echo form_close();
 ?>
