@@ -18,7 +18,7 @@ class Welcome extends Application {
      */
     function index() {
         $this->data['pagetitle'] = 'COMP4711 - Accounts Receivable';
-        $this->data['pagebody'] = '/ar/accounts_recievable';
+        $this->data['pagebody'] = '/ar/accounts_receivable';
         $this->data['customers'] = $this->customers->getAll_array();
         $this->render();
     }

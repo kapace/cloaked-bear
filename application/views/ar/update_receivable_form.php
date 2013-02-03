@@ -2,7 +2,7 @@
     //Code for putting together the form for fields ID, first name, last name
     // email
     $this->load->helper('form');
-    echo form_open('/ar/manage_recievable/add');
+    echo form_open('/ar/manage_receivable/update_customer');
 ?>
 
 <?php
@@ -25,6 +25,6 @@
 
 <?php
     //submit button to submit the form
-    echo form_submit('', 'Submit');
+    echo form_submit('', 'Update');
     echo form_close();
 ?>
