@@ -6,6 +6,16 @@
 ?>
 
 <?php
+if(count($errors) > 0)
+{
+    foreach($errors as $error)
+    {
+        echo '<p>'.$error.'</p>';
+    }
+}
+?>
+
+<?php
     echo form_label('ID','ID');
     echo form_input('id','{id}');
 ?>

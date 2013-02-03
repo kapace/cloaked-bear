@@ -22,10 +22,30 @@ class Manage_Receivable extends Application {
 
     function add_customer()
     {
-        // If there are errors, redisplay the page.
-        if (count($this->data['errors'] > 0))
+        $this->load->helper('validate');
+
+        // Check that the ID doesn't already exist.
+        if( $this->customers->get($_POST['id']) != null)
         {
-            $this->index();
+            $this->data['errors'][] = 'ID already exists.';
+        }
+
+        // Check that the name is alphabetical.
+        if(!validate_name($_POST['name']))
+        {
+            $this->data['errors'][] = 'Name must only contain letters.';
+        }
+
+        // Check that the status is A or D
+        if(!validate_status($_POST['status']))
+        {
+            $this->data['errors'][] = 'Status must be A or D';
+        }
+
+        // If there are errors, redisplay the page.
+        if (count($this->data['errors']) > 0)
+        {
+            $this->add_page();
         }
         // Otherwise commit the add and go back to the main AR page.
         else
@@ -63,9 +83,9 @@ class Manage_Receivable extends Application {
         $updated_record = array_merge($updated_record, $_POST);
 
         // If there are errors, redisplay the page.
-        if (count($this->data['errors'] > 0))
+        if (count($this->data['errors']) > 0)
         {
-            $this->index();
+            $this->update_page($id);
         }
         // Otherwise commit the update and go back to the main AR page.
         else
