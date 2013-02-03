@@ -20,7 +20,7 @@ if (!defined('APPPATH'))
             <th>{name}</th>
             <th>{status}</th>
             <th><a href="/ar/manage_receivable/update_page/{id}">Update</a></th>
-            <th>Delete</th>
+            <th><a href="/ar/manage_receivable/delete_customer/{id}">Delete</a></th>
         </tr>
         {/customers}
     </table>
