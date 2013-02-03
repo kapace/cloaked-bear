@@ -32,8 +32,9 @@ class Add_gl extends Application {
     function create () {
         $this->load->helper('validate');
         
-        $new_id = $_POST['id'];
+        $this->data['pagetitle'] = 'COMP4711 - General Ledger - Add Account';
         
+        $new_id = $_POST['id'];
         $new_date = $_POST['account_date'];
         $new_name = $_POST['account_name'];
         $new_status = $_POST['account_status'];
@@ -68,6 +69,8 @@ class Add_gl extends Application {
     
     function update() {
         $this->load->helper('validate');
+        
+        $this->data['pagetitle'] = 'COMP4711 - General Ledger - Update Account';
         
         $up_id = $_POST['id'];
         $up_date = $_POST['account_date'];
@@ -110,7 +113,6 @@ class Add_gl extends Application {
     
     function delete($accountid) {
         $oldrecord = $this->accounts->get($accountid);
-        
         $oldrecord->account_status = 'D';
         $this->accounts->update($oldrecord);
         redirect('/gl/welcome');
