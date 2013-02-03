@@ -7,6 +7,11 @@ if (!defined('APPPATH'))
  * @author - aliao17 Albert Liao A00536695
  */
 ?>
+<div>
+    <h1>COMP4711 Assignment 1</h1>
+    <h2>Accounts Receivable</h2>
+</div>
+
 <div class="receivablepane">
     <table cols="" border="0">
         <tr>
