@@ -7,19 +7,20 @@ class Manage_Recievable extends Application {
     /**
      * 
      */
-    function index() {
-        $this->data['pagetitle'] = 'COMP4711 - Accounts Receivable - Add New Recievable';
-        $this->data['pagebody'] = '/ar/add_recievable_form';
-        
-        $record = array('id'=>'', 'OrderId'=>'', 'CustomerId'=>'', 'CustomerName'=>'','AmountOwed'=>'','DueDate'=>'');
+    function add_page() {
+        // Set the pagetitle and the view to manage_recievable_form
+        $this->data['pagetitle'] = 'COMP4711 - Accounts Receivable';
+        $this->data['pagebody'] = '/ar/manage_recievable_form';
+
+        // Set all the fields to ''
+        $record = array('id'=>'', 'name'=>'', 'status'=>'');
         $this->data = array_merge($this->data,$record);
 
         $this->render();
     }
 
-    function create()
+    function add()
     {
-        $new_id = $_POST['id'];
 /*
         //validating that the ID isn't already present in the database (primary key)
         if ($this->contacts->get($new_id) != null)
@@ -45,12 +46,14 @@ class Manage_Recievable extends Application {
         }
     }
 
-    function update($id)
+    function update()
     {
-        
+        $id = $_POST['id'];
+
+
     }
 
-    function delete($id)
+    function delete()
     {
         
     }
