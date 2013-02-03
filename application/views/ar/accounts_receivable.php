@@ -16,11 +16,11 @@ if (!defined('APPPATH'))
         </tr>
         {customers}
         <tr>
-            <th>{id}</th>
-            <th>{name}</th>
-            <th>{status}</th>
-            <th><a href="/ar/manage_receivable/update_page/{id}">Update</a></th>
-            <th><a href="/ar/manage_receivable/delete_customer/{id}">Delete</a></th>
+            <td>{id}</td>
+            <td>{name}</td>
+            <td>{status}</td>
+            <td><a href="/ar/manage_receivable/update_page/{id}">Update</a></td>
+            <td><a href="/ar/manage_receivable/delete_customer/{id}">Delete</a></td>
         </tr>
         {/customers}
     </table>
