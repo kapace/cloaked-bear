@@ -70,22 +70,29 @@ class Manage_Receivable extends Application {
 
     function update_customer()
     {
-        $id = $_POST['id'];
+        $this->load->helper('validate');
 
-        /* error checking
-        if ($this->customers->get($id) == null)
-            $this->data['errors'][] = 'Record does not exist.';
-        */
+        // Check that the name is alphabetical.
+        if(!validate_name($_POST['name']))
+        {
+            $this->data['errors'][] = 'Name must only contain letters.';
+        }
+
+        // Check that the status is A or D
+        if(!validate_status($_POST['status']))
+        {
+            $this->data['errors'][] = 'Status must be A or D';
+        }
         
         //Get the old record
-        $updated_record = $this->customers->get_array($id);
+        $updated_record = $this->customers->get_array($_POST['id']);
         //Merge with post
         $updated_record = array_merge($updated_record, $_POST);
 
         // If there are errors, redisplay the page.
         if (count($this->data['errors']) > 0)
         {
-            $this->update_page($id);
+            $this->update_page($_POST['id']);
         }
         // Otherwise commit the update and go back to the main AR page.
         else
@@ -97,11 +104,9 @@ class Manage_Receivable extends Application {
 
     function delete_customer($id)
     {
-        $updated_record = $this->customers->get($id);
-
-        $updated_record->status = 'D';
-
-        $this->customers->update($updated_record);
+        $deletestatement = "DELETE FROM customers WHERE id = '".$id."'";
+        
+        $this->db->query($deletestatement);
         
         redirect('/ar/');
     }
