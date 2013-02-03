@@ -6,7 +6,7 @@
 <div>
     <h1>COMP4711 Assignment 1</h1>
     <h2>Order Entry</h2>
-    <a href="/oe/manage_vendors">Add Vendors</a>
+    <a href="/oe/manage_invoices">Add Vendors</a>
 </div>
 
 
