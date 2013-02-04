@@ -17,8 +17,10 @@ class Welcome extends Application {
      * Yes, we are using view templating.
      */
     function index() {
+    	//update page body and title
         $this->data['pagetitle'] = 'COMP4711 - General Ledger';
         $this->data['pagebody'] = 'gl/gl';
+        //fill in the pages data array to be displayed by view
         $this->data['accounts'] = $this->accounts->getAll_array();
         $this->render();
     }

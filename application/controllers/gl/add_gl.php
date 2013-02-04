@@ -6,13 +6,14 @@
  */
 
 /**
- * Description of add_gl
+ * The controller for managing General Ledger accounts
+ * Allows users to Create new accounts, Update an existing account, or Deactivate accounts
  *
- * @author Darry
+ * @author Behnam Bastami/Darry
  */
 class Add_gl extends Application {
-    //put your code here
     
+    //
     function index() {       
         $this->data['pagebody'] = "gl/manage_accounts";
         $record=array('id'=>'', 'account_name'=>'', 'account_type'=>'', 'account_status'=>'');
@@ -20,7 +21,7 @@ class Add_gl extends Application {
          $this->data['action'] = 'create';
         $this->render();
     }
-    
+    //Used to update the form data
     function update_form ($accountid) {
         $this->data['pagebody'] = 'gl/manage_accounts';
         $record = $this->accounts->get_array($accountid);
@@ -28,7 +29,7 @@ class Add_gl extends Application {
         $this->data['action'] = 'update';
         $this->render();
     }
-    
+    //Used to create a new account
     function create () {
         $this->load->helper('validate');
         
@@ -39,6 +40,7 @@ class Add_gl extends Application {
         $new_name = $_POST['account_name'];
         $new_status = $_POST['account_status'];
         
+        //Validation for new Entry
         if ($this->accounts->get($new_id) != NULL) {
             $this->data['errors'][] = 'id already used';
         }
@@ -59,6 +61,7 @@ class Add_gl extends Application {
             $this->data['errors'][] = 'invalid status';
         }
         
+        //if error array is not empty, print errors, otherwise process create
         if (count($this->data['errors']) > 0) {
             $this->index();
         } else {
@@ -66,7 +69,7 @@ class Add_gl extends Application {
             redirect('/gl/welcome');
         }
     }
-    
+    //Used to update an account
     function update() {
         $this->load->helper('validate');
         
@@ -77,6 +80,7 @@ class Add_gl extends Application {
         $up_name = $_POST['account_name'];
         $up_status = $_POST['account_status'];
         
+        //Validation for update action
         if ($this->accounts->get($up_id) == null)
             $this->data['errors'][] = 'Cant update, does not exist.';
         
@@ -92,11 +96,11 @@ class Add_gl extends Application {
         if ($up_status == NULL  ) {
             $this->data['errors'][] = 'status cannot be null';
         }
-        
         if (!validate_status($up_status)) {
             $this->data['errors'][] = 'invalid status';
         }
         
+        //if error array is not empty, print errors, otherwise process update
         if (count($this->data['errors']) > 0) {
             $this->index();
         } else {
@@ -111,6 +115,7 @@ class Add_gl extends Application {
         
     }
     
+    //Toggle account status from A (Active) to D (Deactivated)
     function delete($accountid) {
         $oldrecord = $this->accounts->get($accountid);
         $oldrecord->account_status = 'D';
