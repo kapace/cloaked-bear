@@ -62,7 +62,7 @@ class Crud_purchase extends Application {
         if (count($this->data['errors']) > 0) 
             $this->index();
         else {  //if no error, upload that to the database
-            $this->contacts->add($_POST);
+            $this->purchases->add($_POST);
             redirect('/');
         }
     }
@@ -81,28 +81,15 @@ class Crud_purchase extends Application {
     
     // validate and update entries
     function update() {
-        $this->load->helper('validate');
-        
         $up_id = $_POST['id'];
-
-        //validation of new  update
-        if ($this->vendors->get($up_id) == null)
-            $this->data['errors'][] = 'ID non existant';
-        if (!validate_id($_POST['id']))
-            $this->data['errors'][] = 'at least 3 chars for ID';
-
-        if (!validate_name($_POST['productstatus']))
-            $this->data['errors'][] = 'Status cannot be blank!';
-        
-        if (!validate_status($_POST['productstatus']))
-            $this->data['errors'][] = 'Invalid status! Must be "A" or "D"!';
         
         if (count($this->data['errors']) > 0) {
             $this->update_form($up_id);
         } else {
             $oldrecord = $this->purchases->get_array($up_id);
+            
             $newrecord = array_merge ($oldrecord, $_POST);
-            $this->purchases->update($newrecord);
+            $this->vendors->update($newrecord);
             redirect('/po/welcome');
         }
     }
