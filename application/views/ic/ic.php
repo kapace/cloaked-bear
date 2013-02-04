@@ -8,6 +8,13 @@ if (!defined('APPPATH'))
  * shows IC homepage and the SQL table... I think
  */
 ?>
+
+<div>
+    <h1>COMP4711 Assignment 1</h1>
+    <h2>Inventory Control</h2>
+    <a href="/ic/add_product">Add Product</a>
+</div>
+
 <table cols="" border="0">
     <tr>
         <th>IC Homepage</th>

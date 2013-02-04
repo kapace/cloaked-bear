@@ -1,0 +1,2 @@
+validate:
+	php validation.php
