@@ -13,10 +13,11 @@ if (!defined('APPPATH'))
  * --------------------------------------------
  */
 ?>
-
-<ul>
-    <li><a href="/po/crud_purchase">Add</a></li>
-</ul>
+<div>
+    <h1>COMP4711 Assignment 1</h1>
+    <h2>Purchase Orders</h2>
+    <a href="/po/crud_purchase">Add Order</a>
+</div>
 
 <table cols="" border="0">
     <tr>
@@ -42,7 +43,7 @@ if (!defined('APPPATH'))
         <td>{reorderqty}</td>
         <td>{supplierno}</td>
         <td><a href="/po/crud_purchase/delete/{id}">X</a></td>
-        <td><a href="/po/crud_purchase/update/{id}">U</a></td>
+        <td><a href="/po/crud_purchase/update_form/{id}">U</a></td>
     </tr>
     {/purchases}
 </table>

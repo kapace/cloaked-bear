@@ -2,7 +2,7 @@
     // Aaron, Steve
     // call CI functions to input HTML input forms
     $this->load->helper('form');
-    echo form_open('/po/crud_purchase/post');
+    echo form_open('/po/crud_purchase/{action}');
     
     echo form_label('Product ID', 'productid');
     echo form_input('productid', '{id}');

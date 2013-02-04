@@ -14,12 +14,12 @@ if (!defined('BASEPATH'))
  * ------------------------------------------------------------------------
  *
  */
-class Orders extends _Mymodel{
+class Invoices extends _Mymodel{
     
     // constructor
     function __construct() {
         parent::__construct();
-        $this->setTable('orders','id');
+        $this->setTable('invoices','id');
     }
 }
 

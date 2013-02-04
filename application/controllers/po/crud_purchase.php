@@ -33,7 +33,7 @@ class Crud_purchase extends Application {
         $this->load->helper('validate');
         
         $record = array(
-            'productid'=>$_POST['productid'],
+            'id'=>$_POST['productid'],
             'productname'=>$_POST['productname'],
             'productstatus'=>$_POST['productstatus'],
             'productdate'=>$_POST['productdate'],
@@ -62,24 +62,42 @@ class Crud_purchase extends Application {
         if (count($this->data['errors']) > 0) 
             $this->index();
         else {  //if no error, upload that to the database
-            $this->contacts->add($_POST);
+            $this->purchases->add($_POST);
             redirect('/');
         }
     }
     
-    // U, D functions courtesy of AP module
-    function update($vendorid) {
-        $oldrecord = $this->purchases->get($id);
+    // like the add purchases form but for updating
+    function update_form ($id) {
+        $this->data['pagebody'] = 'po/add_purchases_form';
         
-        //toggle between D and A for the status
-        $oldrecord->productstatus = ($oldrecord->productstatus === 'A') ? 'D': 'A';
+        $record = $this->purchases->get_array($id);
         
-        $this->purchases->update($oldrecord);
-        redirect('/po/welcome');
+        $this->data = array_merge($this->data, $record);
+        $this->data['action'] = 'update';
+        
+        $this->render();
     }
     
-    function delete($vendorid) {
-        $oldrecord = $this->purchases->get($vendorid);
+    // validate and update entries
+    function update() {
+        $up_id = $_POST['id'];
+        
+        if (count($this->data['errors']) > 0) {
+            $this->update_form($up_id);
+        } else {
+            $oldrecord = $this->purchases->get_array($up_id);
+            
+            $newrecord = array_merge ($oldrecord, $_POST);
+            $this->vendors->update($newrecord);
+            redirect('/po/welcome');
+        }
+    }
+    
+    // doesn't delete but marks status as 'D'
+    // for invactive
+    function delete($id) {
+        $oldrecord = $this->purchases->get($id);
         
         $oldrecord->productstatus = 'D';
         $this->purchases->update($oldrecord);

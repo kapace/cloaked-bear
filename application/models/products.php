@@ -19,7 +19,7 @@ class Products extends _Mymodel{
     // constructor
     function __construct() {
         parent::__construct();
-        $this->setTable('products','code');
+        $this->setTable('products','productID');
     }
 }
 

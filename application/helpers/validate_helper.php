@@ -12,6 +12,6 @@ function validate_date($date) {
 }
 
 function validate_status($status) {
-    return preg_match('{A|D}', $status ) === 1;
+    return preg_match('/^(A|D)$/', $status ) === 1;
 }
 ?>
