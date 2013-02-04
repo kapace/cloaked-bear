@@ -18,7 +18,8 @@ class Welcome extends Application {
      */
     function index() {
         $this->data['pagetitle'] = 'COMP4711 - Inventory Control';
-        $this->data['pagebody'] = 'home';
+        $this->data['pagebody'] = 'ic/ic';
+        $this->data['products'] = $this->products->getAll_array();
         $this->render();
     }
 
