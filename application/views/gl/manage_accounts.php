@@ -1,7 +1,10 @@
 <?php
+
+//Load the form helper
 $this->load->helper('form');
 echo form_open('/gl/add_gl/{action}');
 
+//Display the Textbox labels and Input boxes
 echo form_label('ID', 'id');
 echo form_input('id', '{id}');
 

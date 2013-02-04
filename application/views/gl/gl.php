@@ -1,14 +1,15 @@
 <?php
 
 ?>
-
+<!-- 
+HTML code to organize the data 
+and also provide buttons for user interaction
+-->
 <div>
     <h1>COMP4711 Assignment 1</h1>
     <h2>General Ledger</h2>
     <a href="/gl/add_gl">Add Accounts</a>
 </div>
-
-
 
 <table cols="" border="0">
     <tr>
