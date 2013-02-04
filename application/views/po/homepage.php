@@ -42,7 +42,7 @@ if (!defined('APPPATH'))
         <td>{reorderqty}</td>
         <td>{supplierno}</td>
         <td><a href="/po/crud_purchase/delete/{id}">X</a></td>
-        <td><a href="/po/crud_purchase/update/{id}">U</a></td>
+        <td><a href="/po/crud_purchase/update_form/{id}">U</a></td>
     </tr>
     {/purchases}
 </table>

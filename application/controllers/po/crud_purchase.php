@@ -33,7 +33,7 @@ class Crud_purchase extends Application {
         $this->load->helper('validate');
         
         $record = array(
-            'productid'=>$_POST['productid'],
+            'id'=>$_POST['productid'],
             'productname'=>$_POST['productname'],
             'productstatus'=>$_POST['productstatus'],
             'productdate'=>$_POST['productdate'],
@@ -67,19 +67,50 @@ class Crud_purchase extends Application {
         }
     }
     
-    // U, D functions courtesy of AP module
-    function update($vendorid) {
-        $oldrecord = $this->purchases->get($id);
+    // like the add purchases form but for updating
+    function update_form ($id) {
+        $this->data['pagebody'] = 'po/add_purchases_form';
         
-        //toggle between D and A for the status
-        $oldrecord->productstatus = ($oldrecord->productstatus === 'A') ? 'D': 'A';
+        $record = $this->purchases->get_array($id);
         
-        $this->purchases->update($oldrecord);
-        redirect('/po/welcome');
+        $this->data = array_merge($this->data, $record);
+        $this->data['action'] = 'update';
+        
+        $this->render();
     }
     
-    function delete($vendorid) {
-        $oldrecord = $this->purchases->get($vendorid);
+    // validate and update entries
+    function update() {
+        $this->load->helper('validate');
+        
+        $up_id = $_POST['id'];
+
+        //validation of new  update
+        if ($this->vendors->get($up_id) == null)
+            $this->data['errors'][] = 'ID non existant';
+        if (!validate_id($_POST['id']))
+            $this->data['errors'][] = 'at least 3 chars for ID';
+
+        if (!validate_name($_POST['productstatus']))
+            $this->data['errors'][] = 'Status cannot be blank!';
+        
+        if (!validate_status($_POST['productstatus']))
+            $this->data['errors'][] = 'Invalid status! Must be "A" or "D"!';
+        
+        if (count($this->data['errors']) > 0) {
+            $this->update_form($up_id);
+        } else {
+            $oldrecord = $this->purchases->get_array($up_id);
+            $newrecord = array_merge ($oldrecord, $_POST);
+            $this->purchases->update($newrecord);
+            redirect('/po/welcome');
+        }
+    }
+    
+    // doesn't delete but marks status as 'D'
+    // for invactive
+    function delete($id) {
+        $oldrecord = $this->purchases->get($id);
         
         $oldrecord->productstatus = 'D';
         $this->purchases->update($oldrecord);
