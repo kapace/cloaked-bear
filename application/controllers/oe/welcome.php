@@ -18,7 +18,8 @@ class Welcome extends Application {
      */
     function index() {
         $this->data['pagetitle'] = 'COMP4711 - Order Entry';
-        $this->data['pagebody'] = 'home';
+        $this->data['pagebody'] = 'oe/oe';
+        $this->data['invoices'] = $this->invoices->getAll_array();
         $this->render();
     }
 
