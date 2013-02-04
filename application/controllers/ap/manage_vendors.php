@@ -18,8 +18,14 @@ class Manage_vendors extends Application {
         $this->render();
     }
 
-    function update_form ($vendorid) {
+    function update_form ($vendorid = null) {
         $this->data['pagebody'] = 'ap/manage_vendors';
+        
+        if ($vendorid == null || $this->vendors->get($vendorid) == null) {
+            redirect('/ap/welcome');
+            return;
+        }
+
         $record = $this->vendors->get_array($vendorid);
         
         $this->data['pagetitle'] = 'Update Vendor: '. $record['name'];
@@ -71,8 +77,6 @@ class Manage_vendors extends Application {
         /*New, updated ID cannot be blank, must be unique, and it must exist*/
         if ($this->vendors->get($up_id) == null)
             $this->data['errors'][] = 'Cant update, does not exist.';
-        if ($this->vendors->get($up_id) != null)
-            $this->data['errors'][] = 'Contact ID already used.';
         if (!validate_id($_POST['id']))
             $this->data['errors'][] = 'ID is invalid. Must be 3 digits!';
 
