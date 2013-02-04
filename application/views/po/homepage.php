@@ -13,10 +13,11 @@ if (!defined('APPPATH'))
  * --------------------------------------------
  */
 ?>
-
-<ul>
-    <li><a href="/po/crud_purchase">Add</a></li>
-</ul>
+<div>
+    <h1>COMP4711 Assignment 1</h1>
+    <h2>Purchase Orders</h2>
+    <a href="/po/crud_purchase">Add Order</a>
+</div>
 
 <table cols="" border="0">
     <tr>

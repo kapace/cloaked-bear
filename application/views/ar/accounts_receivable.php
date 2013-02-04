@@ -10,16 +10,17 @@ if (!defined('APPPATH'))
 <div>
     <h1>COMP4711 Assignment 1</h1>
     <h2>Accounts Receivable</h2>
+     <a href="/ar/manage_receivable/add_page">Add Receivable</a>
 </div>
 
 <div class="receivablepane">
     <table cols="" border="0">
         <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Status</td>
-            <td></td>
-            <td></td>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
         </tr>
         {customers}
         <tr>
@@ -32,6 +33,4 @@ if (!defined('APPPATH'))
         {/customers}
 
     </table>
-
-    <a href="/ar/manage_receivable/add_page">Add Receivable</a>
 </div>
